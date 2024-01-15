@@ -7,7 +7,7 @@ resource "aws_eks_cluster" "my-eks-cluster" {
         endpoint_public_access = true
         security_group_ids = [aws_security_group.controlplane_sg.id, aws_security_group.node_sg.id]    
     }
-    depends_on = [aws_iam_role_policy_attachment.eks_cluster_role_attachment]
+    depends_on = [aws_iam_role_policy_attachment.eks_cluster_role_attachment, aws_iam_role_policy_attachment.eks_cluster_vpc_role_attachment]
 
 }
 
